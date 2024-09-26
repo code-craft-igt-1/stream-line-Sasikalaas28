@@ -1,8 +1,8 @@
-#include "./sendvitals.h"
-#include "gtest/gtest.h"
 #include <string>
 #include <vector>
 #include <sstream>
+#include "./sendvitals.h"
+#include "gtest/gtest.h"
 
 using std::string, std::vector, std::stringstream;
 
