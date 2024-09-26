@@ -3,22 +3,23 @@
 #include <string>
 #include <random>
 
-using namespace std;
+using std::cout, std::endl, std::string, std::to_string;
+using std::random_device, std::mt19937, std::uniform_int_distribution;
 
-void sendVitals(int numOfVitals, string& vitals) {
-    for(int itr = 0; itr < 50; itr++) {
+void sendVitals(int numOfVitals, string* vitals) {
+    for (int itr = 0; itr < 50; itr++) {
         float vitalValue;
         vitalValue = randomNumberGenerator(0, 102);
-        vitals += to_string(vitalValue);
+        *vitals += to_string(vitalValue);
         vitalValue = randomNumberGenerator(0, 100);
-        vitals +=" " + to_string(vitalValue);
+        *vitals +=" " + to_string(vitalValue);
         vitalValue = randomNumberGenerator(0, 90);
-        if(itr == numOfVitals - 1)
-            vitals +=" " + to_string(vitalValue);
+        if (itr == numOfVitals - 1)
+            *vitals +=" " + to_string(vitalValue);
         else
-            vitals +=" " + to_string(vitalValue) +  ",";
+            *vitals +=" " + to_string(vitalValue) +  ",";
     }
-    cout << "Vitals : " << vitals << endl;
+    cout << "Vitals : " << *vitals << endl;
 }
 
 float randomNumberGenerator(float min, float max) {

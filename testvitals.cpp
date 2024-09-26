@@ -1,10 +1,10 @@
 #include "./sendvitals.h"
+#include "gtest/gtest.h"
 #include <string>
 #include <vector>
 #include <sstream>
-#include "gtest/gtest.h"
 
-using namespace std;
+using std::string, std::vector, std::stringstream;
 
 // Function to split a string by a delimiter
 vector<string> split(const string &s, char delimiter) {
@@ -19,10 +19,10 @@ vector<string> split(const string &s, char delimiter) {
 
 bool isVitalsInformat() {
     string vitals = "";
-    sendVitals(5,vitals);
+    sendVitals(5, &vitals);
     vector<string> vitalValues = split(vitals, ',');
     vector<string> singleVital = split(vitalValues[0], ' ');
-    if(singleVital.size() != 3) {
+    if (singleVital.size() != 3) {
         return false;
     }
     return true;
